@@ -1,0 +1,4 @@
+{
+  "collection.title": "Sample collection",
+  "collection.entries": {"one": "{count} entry", "other": "{count} entries"}
+}

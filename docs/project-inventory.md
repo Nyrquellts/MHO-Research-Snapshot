@@ -8,6 +8,7 @@ I worked on the standalone simulations, the tools I used to investigate problems
 | --- | --- |
 | Encounter prototypes | A seeded, fixed-tick hunt simulator that combines terrain, AI, combat, status, and rewards. I also made a turn-based prototype with separate action and output callbacks. |
 | C# reference models | A console project that ports the terrain lookup, hit-zone and part damage, and party-size scaling to C#. |
+| Server-side C# excerpts | Party and hunt state, request replay, rank thresholds, fixed-step motion, telemetry, localization, and bounded background writers. The patches were reviewed against the imported server baseline. [Server excerpts](../examples/server-excerpts) |
 | Motion analysis | Tools for checking turn rates, animation paths, movement update intervals, height changes, stalls, flight, and whether a dodge leaves the expected trace. The root-motion sampler keeps the source key times and endpoints. |
 | Runtime and build checks | A profile parser for the fixed-step experiments, an offline log summarizer for timing and health measurements, and a source fingerprint that only follows the definitions and dependencies a generator needs. |
 | Progression and localization | Player saves, equipment skills, crafting, quests, rewards, catalog checks, and font coverage. |
@@ -16,7 +17,7 @@ I worked on the standalone simulations, the tools I used to investigate problems
 
 | Part | What is still local |
 | --- | --- |
-| Runnable restoration | The integrated Arrowgene-based C# server, my changes to it, the network and multiplayer code, and the server-based replay and deployment harnesses. The server changes sit alongside upstream AGPL code and game-derived files. They need a separate distribution review at the patch and dependency level. |
+| Runnable restoration | The integrated Arrowgene-based C# server, its network and multiplayer integration, and the server-based replay and deployment harnesses. Those integration patches depend on upstream code, the client, or game-derived files. The independent server logic is represented in the excerpts above. |
 | Game client and compatibility | The launcher, client patch and protection work, protocol bridges, and game-format readers. Those are tied to a specific client or to separately licensed community tools. |
 | Named boss prototypes | The browser and terminal Golden Jie Lung experiments and the later asset-pack branch. The browser version includes the game's monster stats, moves, and named rewards. The asset-pack branch works from the original game's assets. |
 | Game-derived content | The map, item, animation, move, behavior, and font data, plus translations of existing game text and the client archives. |

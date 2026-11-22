@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 examples/csharp/**/bin/
 examples/csharp/**/obj/
+examples/server-excerpts/**/bin/
+examples/server-excerpts/**/obj/

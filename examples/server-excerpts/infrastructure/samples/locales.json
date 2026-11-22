@@ -1,0 +1,33 @@
+{
+  "default": "en",
+  "locales": [
+    {
+      "tag": "en",
+      "label": "English",
+      "english": "English",
+      "native": "English",
+      "script": "Latn",
+      "dir": "ltr",
+      "aliases": ["en-US"],
+      "plural_required": ["one", "other"],
+      "plural_all": ["one", "other"],
+      "numbers": {"group": ",", "decimal": ".", "min_group": 1, "digits": "latn"},
+      "review": "example",
+      "variant": {"decided": true, "note": "Example locale"}
+    },
+    {
+      "tag": "pt-BR",
+      "label": "Portuguese (Brazil)",
+      "english": "Portuguese (Brazil)",
+      "native": "Português (Brasil)",
+      "script": "Latn",
+      "dir": "ltr",
+      "aliases": ["pt"],
+      "plural_required": ["one", "other"],
+      "plural_all": ["one", "many", "other"],
+      "numbers": {"group": ".", "decimal": ",", "min_group": 1, "digits": "latn"},
+      "review": "example",
+      "variant": {"decided": true, "note": "Example locale"}
+    }
+  ]
+}
