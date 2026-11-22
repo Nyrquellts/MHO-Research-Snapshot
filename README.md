@@ -2,16 +2,20 @@
 
 I tried to finish the offline revival, but real life came up and I had to pause. Here’s what I found and what I worked on myself.
 
-- **Solo hunts needed their own tuning.** I built a small Python prototype that scales monster health and damage by party size. I also tried a solo progression policy that lets you repeat hunts and craft with the materials you’ve earned. The settings here are values I chose for the prototype.
-- **Movement needed a consistent way to find the ground.** I wrote a height-grid lookup that interpolates between samples and clamps queries to the map edge. I used it in a fixed-tick monster AI prototype to keep the actor grounded as it moves.
-- **Comparing a recorded hunt with a replay exposed movement bugs.** Part of the movement code was treating backward and sideways motion as forward motion, and animation playback was using a fixed rate. I worked on preserving movement direction and playback timing.
-- **Headless tests only took me so far.** They let me check scaling, terrain, and state transitions in isolation. I still had work to do on testing and polishing the complete hunt experience in the game client.
+## What I worked on
+
+- **Combat and solo hunts.** I tried party-size tuning, hitzone damage, part breaks, and status buildup in Python before working through those behaviors in local hunts. The included values are prototype settings. [Gameplay modules](src/mho)
+- **Movement and monster behavior.** I built a fixed-tick AI model and a height-grid lookup to keep monsters grounded. Comparing a recorded hunt with a replay exposed lost movement direction, playback timing errors, and attacks that kept restarting. [Movement, combat, and the hunt loop](docs/movement-and-hunts.md)
+- **Progression and rewards.** I worked on player saves, gear skill points, crafting, quest selection, and seeded reward rolls. In the larger project I checked that leaving town, settling a hunt, and returning with rewards worked together. [Gameplay tests](tests)
+- **Trace diagnostics.** I built tools to reduce repeated events, compare two runs, and find the earliest difference worth investigating. [Comparing recorded runs](docs/trace-diagnostics.md)
+- **Localization.** I built checks for catalogs, plural forms, placeholders, writing direction, and font coverage. The font audit explained why a translated line could still be unreadable in the game. [Localization and font coverage](docs/localization-and-fonts.md)
+- **Build verification.** I added fingerprints for source and data so I could check which build produced a result and spot mismatches with the checkout. [Build stamp module](src/mho/buildstamp.py)
 
 The broader revival built on Arrowgene.MonsterHunterOnline by Sebastian Heinz and its contributors, along with work from the MHO Revival community. This is an unofficial fan research snapshot. The Python examples use synthetic inputs and run with the standard library.
 
 ## Run the tests
 
-Use Python 3.11 or newer. From the repository root, set `PYTHONPATH` to `src` for the test run.
+Use Python 3.11 or newer. The build-stamp tests use Git when it is installed. From the repository root, set `PYTHONPATH` to `src` for the test run.
 
 ```powershell
 $env:PYTHONPATH = 'src'
